@@ -7,6 +7,8 @@ vector<vector<int>> inorderTraversal(TreeNode *root)
     vector<vector<int>> ans;
     vector<int> pre, in, post;
     stack<pair<TreeNode *, int>> s;
+
+    
     s.push({root, 1});
     
     pair<TreeNode *, int> p;
