@@ -10,6 +10,7 @@ vector<vector<int>> inorderTraversal(TreeNode *root)
 
     s.push({root, 1});
     
+    
     pair<TreeNode *, int> p;
     while (!s.empty())
     {
