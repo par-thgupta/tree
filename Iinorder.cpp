@@ -13,19 +13,20 @@ public:
         (*this).right = nullptr;
     }
 };
-void preorder(TreeNode *&root)
+void inorder(TreeNode *&root)
 {
     stack<TreeNode *> s;
-    s.push(root);
-    while (!s.empty())
+    TreeNode *temp = root;
+    while (temp != NULL || s.size() > 0)
     {
-        TreeNode *pp = s.top();
-        cout << pp->val << " ";
+        while (temp)
+        {
+            s.push(temp);
+            temp = temp->left;
+        }
+        cout << s.top()->val << " ";
+        temp = s.top()->right;
         s.pop();
-        if (pp->right)
-            s.push(pp->right);
-        if (pp->left)
-            s.push(pp->left);
     }
 }
 int main()
@@ -37,6 +38,6 @@ int main()
     root->left->right = new TreeNode(4);
     root->right->left = new TreeNode(5);
     root->right->right = new TreeNode(6);
-    preorder(root);
+    inorder(root);
     return 0;
 }
